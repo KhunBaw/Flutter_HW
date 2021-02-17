@@ -3,12 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:date_field/date_field.dart';
+import 'package:hw_lab03/PageShow.dart';
 import 'package:intl/intl.dart';
 
-class MainPage extends StatelessWidget {
-  String firstName;
-
+class MainPage extends StatefulWidget {
   MainPage({Key key}) : super(key: key);
+
+  @override
+  _MainPageState createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  String firstName = 'a',
+      lastName = 'a',
+      address = 'a',
+      postal = 'a',
+      phone = 'a';
+  DateTime recieveDate;
 
   @override
   Widget build(BuildContext context) {
@@ -106,36 +117,47 @@ class MainPage extends StatelessWidget {
                     child: Stack(
                       children: <Widget>[
                         Transform.translate(
-                          offset: Offset(0.0, 574.0),
+                          offset: Offset(0.0, 530.0),
                           child:
                               // Adobe XD layer: 'Next' (component)
-                              SizedBox(
-                            width: 327.0,
-                            height: 48.0,
-                            child: Stack(
-                              children: <Widget>[
-                                Pinned.fromSize(
-                                  bounds: Rect.fromLTWH(0.0, 0.0, 327.0, 48.0),
-                                  size: Size(327.0, 48.0),
-                                  pinLeft: true,
-                                  pinRight: true,
-                                  pinTop: true,
-                                  pinBottom: true,
-                                  child: Container(
-                                    child: Center(
-                                      child: Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.white,
-                                        size: 40.0,
+                              FlatButton(
+                            onPressed: () {
+                              Navigator.push(context,
+                                  CupertinoPageRoute(builder: (context) {
+                                return PageShow(firstName + ' ' + lastName,
+                                    address, phone, postal, recieveDate);
+                              }));
+                            },
+                            child: SizedBox(
+                              width: 327.0,
+                              height: 48.0,
+                              child: Stack(
+                                children: <Widget>[
+                                  Pinned.fromSize(
+                                    bounds:
+                                        Rect.fromLTWH(0.0, 0.0, 327.0, 48.0),
+                                    size: Size(327.0, 48.0),
+                                    pinLeft: true,
+                                    pinRight: true,
+                                    pinTop: true,
+                                    pinBottom: true,
+                                    child: Container(
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.arrow_forward,
+                                          color: Colors.white,
+                                          size: 40.0,
+                                        ),
+                                      ),
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(4.0),
+                                        color: const Color(0xff2699fb),
                                       ),
                                     ),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(4.0),
-                                      color: const Color(0xff2699fb),
-                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
                         ),
@@ -182,7 +204,7 @@ class MainPage extends StatelessWidget {
                                               RegExp("[A-Z a-z ก-๙]"))
                                         ],
                                         onChanged: (String value) {
-                                          print(value);
+                                          firstName = value;
                                         },
                                       ),
                                     ),
@@ -247,7 +269,7 @@ class MainPage extends StatelessWidget {
                                               RegExp("[A-Z a-z ก-๙]"))
                                         ],
                                         onChanged: (String value) {
-                                          print(value);
+                                          lastName = value;
                                         },
                                       ),
                                     ),
@@ -307,7 +329,7 @@ class MainPage extends StatelessWidget {
                                         ),
                                         maxLines: 5,
                                         onChanged: (String value) {
-                                          print(value);
+                                          address = value;
                                         },
                                       ),
                                     ),
@@ -373,7 +395,7 @@ class MainPage extends StatelessWidget {
                                               RegExp("[0-9]"))
                                         ],
                                         onChanged: (String value) {
-                                          print(value);
+                                          postal = value;
                                         },
                                       ),
                                     ),
@@ -439,7 +461,7 @@ class MainPage extends StatelessWidget {
                                               RegExp("[0-9]"))
                                         ],
                                         onChanged: (String value) {
-                                          print(value);
+                                          phone = value;
                                         },
                                       ),
                                     ),
@@ -495,7 +517,7 @@ class MainPage extends StatelessWidget {
                                         mode: DateTimeFieldPickerMode.date,
                                         dateFormat: DateFormat.yMd(),
                                         onDateSelected: (DateTime value) {
-                                          print(value);
+                                          recieveDate = value;
                                         },
                                       ),
                                     ),

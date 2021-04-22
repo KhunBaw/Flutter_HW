@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mini/components/place_item.dart';
 import '../models/place.dart';
 
 class PlaceList extends StatelessWidget {
@@ -7,11 +8,9 @@ class PlaceList extends StatelessWidget {
       placeId: 0,
       title: 'มัสยิดกลาง',
       thumbnailUrl:
-          'https://github.com/DuangruthaiAnuto/Pic/blob/main/mudyid.jpg',
-      placeDetail: 'มัสยิดกลางประจำจังหวัดสงขลา หรือชื่อเต็มๆ เรียกว่า มัสยิดกลางดิย์นุลอิสลาม 
-      ตั้งอยู่ที่ ตำบลคลองแห อำเภอหาดใหญ่ จังหวัดสงขลา เป็นศาสนสถานของอิสลามที่เป็นที่รู้จักกันอย่างดี 
-      ทั้ง ชาวสงขลา และ สายถ่ายภาพทั้งหลาย เพราะมีลักษณะสถาปัตยกรรมที่สวยสง่างดงาม 
-      โดยด้านหน้าจะมีสระน้ำทอดยาวราว 200 เมตร ทำให้มัสยิดนี้ดูคล้ายกับทัชมาฮาลที่อินเดีย ไฮไลท์จะอยู่ที่ช่วงพระอาทิตย์ตกดิน',
+          'https://github.com/DuangruthaiAnuto/Pic/blob/main/mudyid.jpg?raw=true',
+      description:
+          'มัสยิดกลางประจำจังหวัดสงขลา หรือชื่อเต็มๆ เรียกว่า มัสยิดกลางดิย์นุลอิสลาม',
     ),
   ];
 
@@ -20,6 +19,7 @@ class PlaceList extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text("Songkhla attractions"),
+          backgroundColor: Colors.teal[800],
         ),
         body: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -28,6 +28,11 @@ class PlaceList extends StatelessWidget {
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
           ),
+          itemBuilder: (context, i) => PlaceItem(
+              placeList[i].placeId,
+              placeList[i].title,
+              placeList[i].thumbnailUrl,
+              placeList[i].description),
           itemCount: placeList.length,
           padding: EdgeInsets.all(10),
         ));

@@ -5,12 +5,12 @@ class Place {
   final int placeId;
   final String title;
   final String thumbnailUrl;
-  final String placeDetail;
+  final String description;
 
   Place({
     @required this.placeId,
     @required this.title,
     @required this.thumbnailUrl,
-    @required this.placeDetail,
+    @required this.description,
   });
 }

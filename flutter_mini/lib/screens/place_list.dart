@@ -7,7 +7,7 @@ class PlaceList extends StatelessWidget {
     Place(
       placeId: 0,
       title: 'มัสยิดกลาง',
-      thumbnailUrl:
+      imageUrl:
           'https://github.com/DuangruthaiAnuto/Pic/blob/main/mudyid.jpg?raw=true',
       description:
           'มัสยิดกลางประจำจังหวัดสงขลา หรือชื่อเต็มๆ เรียกว่า มัสยิดกลางดิย์นุลอิสลาม',
@@ -31,7 +31,7 @@ class PlaceList extends StatelessWidget {
           itemBuilder: (context, i) => PlaceItem(
               placeList[i].placeId,
               placeList[i].title,
-              placeList[i].thumbnailUrl,
+              placeList[i].imageUrl,
               placeList[i].description),
           itemCount: placeList.length,
           padding: EdgeInsets.all(10),

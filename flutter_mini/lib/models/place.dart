@@ -4,13 +4,17 @@ import 'package:flutter/foundation.dart';
 class Place {
   final int placeId;
   final String title;
-  final String thumbnailUrl;
+  final String imageUrl;
   final String description;
+  final double lat;
+  final double lng;
 
   Place({
     @required this.placeId,
     @required this.title,
-    @required this.thumbnailUrl,
+    @required this.imageUrl,
     @required this.description,
+    @required this.lat,
+    @required this.lng,
   });
 }

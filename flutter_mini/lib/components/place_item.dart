@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class PlaceItem extends StatelessWidget {
   final int placeId;
   final String title;
-  final String thumbnailUrl;
+  final String imageUrl;
   final String description;
 
   PlaceItem(
     this.placeId,
     this.title,
-    this.thumbnailUrl,
+    this.imageUrl,
     this.description,
   );
 
@@ -21,16 +21,16 @@ class PlaceItem extends StatelessWidget {
         onTap: () {
           // Navigator.of(context).push(MaterialPageRoute(
           //     builder: (context) =>
-          //         BookDetail(placeId, title, thumbnailUrl, description)));
+          //         BookDetail(placeId, title, imageUrl, description)));
           Navigator.of(context).pushNamed('/place-detail', arguments: {
             "placeId": placeId,
             "title": title,
-            "thumbnailUrl": thumbnailUrl,
+            "imageUrl": imageUrl,
             "description": description,
           });
         },
         child: GridTile(
-          child: Image.network(thumbnailUrl, fit: BoxFit.cover),
+          child: Image.network(imageUrl, fit: BoxFit.cover),
           footer: GridTileBar(
             backgroundColor: Colors.black54,
             title: Text(

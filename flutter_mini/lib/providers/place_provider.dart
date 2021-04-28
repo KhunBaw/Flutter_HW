@@ -28,6 +28,10 @@ class PlaceProvider {
     return _places;
   }
 
+  Future<Place> getByPlace() async {
+    List<Place> _places = await getPlaces();
+  }
+
   Future<Place> findByPlaceId(String placeId) async {
     List<Place> _places = await getPlaces();
     return _places.firstWhere((plc) => plc.placeId == placeId);

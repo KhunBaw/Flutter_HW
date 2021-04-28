@@ -41,6 +41,7 @@ dev_dependencies:
   flutter_polyline_points: ^0.1.0
   flutter_dotenv: ^3.1.0
   flash: "^1.2.0"
+  provider: ^4.0.0
   flutter_test:
     sdk: flutter
 

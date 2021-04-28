@@ -1,21 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mini/screens/place_detail.dart';
-import 'package:flutter_mini/screens/place_list.dart';
+import './screens/sharemyplace_screen.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 
-void main() {
-  runApp(SongkhlaApp());
+void main() async {
+  await DotEnv.load();
+  runApp(ShareMyPlaceApp());
 }
 
-class SongkhlaApp extends StatelessWidget {
-  // This widget is the root of your application.
+class ShareMyPlaceApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Songkhla attractions',
-      home: PlaceList(),
-      routes: {
-        '/place-detail': (context) => PlaceDetail(),
-      },
+      title: 'Share my place',
+      home: ShareMyPlaceScreen(),
+      //theme: ThemeData.dark(),
     );
   }
 }

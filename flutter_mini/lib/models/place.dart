@@ -1,20 +1,33 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
-
 class Place {
-  final int placeId;
+  final String placeId;
   final String title;
-  final String imageUrl;
   final String description;
+  final String imageUrl;
   final double lat;
   final double lng;
 
-  Place({
-    @required this.placeId,
-    @required this.title,
-    @required this.imageUrl,
-    @required this.description,
-    @required this.lat,
-    @required this.lng,
-  });
+  Place(
+    this.placeId,
+    this.title,
+    this.description,
+    this.imageUrl,
+    this.lat,
+    this.lng,
+  );
+
+  factory Place.fromJson(dynamic json) {
+    return Place(
+      json['placeId'] as String,
+      json['title'] as String,
+      json['description'] as String,
+      json['imageUrl'] as String,
+      json['lng'] as double,
+      json['lng'] as double,
+    );
+  }
+
+  @override
+  String toString() {
+    return '{ ${this.placeId}, ${this.title}, ${this.description} , ${this.imageUrl}, ${this.lat}, ${this.lng} }';
+  }
 }

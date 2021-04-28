@@ -1,12 +1,17 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutter_mini">
+    package="com.example.flutter_lab9">
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES"/>
    <application
-        android:label="flutter_mini"
+        android:label="flutter_lab9"
+        android:usesCleartextTraffic="true"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyCs5wcYeoKg4GyAbsbEbGx92yjQkE2246M"/>
+               
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -41,7 +46,5 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDlTRuRLeKvnmjeDBBGay0zawsCd42C5aw"/>
     </application>
 </manifest>
